@@ -1,26 +1,49 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h2>Bill Splitter</h2>
+  </div>
+  <div>
+    <input type="number" placeholder="Enter Your Bill" v-model="totalBill" />
+  </div>
+  <div>
+    <h4>Enter Number of People</h4>
+    <input type="number" v-model="noPeople" />
+  </div>
+  <div>
+    <h4>Please enter your tip %</h4>
+    <input type="number" v-model="customAmount" />
+  </div>
+
+  <bill-display
+    :noPeople="noPeople"
+    :totalBill="totalBill"
+    :customAmount="customAmount"
+    @resetCalculation="setToZero"
+  ></bill-display>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import BillDisplay from "./components/BillDisplay.vue";
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    BillDisplay,
+  },
+  data() {
+    return {
+      totalBill: "",
+      noPeople: "",
+      customAmount: "",
+    };
+  },
+  methods: {
+    setToZero() {
+      this.totalBill = "";
+      this.noPeople = "";
+      this.customAmount = "";
+    },
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
