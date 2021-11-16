@@ -1,25 +1,28 @@
 <template>
-  <div>
-    <h2>Bill Splitter</h2>
-  </div>
-  <div>
-    <input type="number" placeholder="Enter Your Bill" v-model="totalBill" />
-  </div>
-  <div>
-    <h4>Enter Number of People</h4>
-    <input type="number" v-model="noPeople" />
-  </div>
-  <div>
-    <h4>Please enter your tip %</h4>
-    <input type="number" v-model="customAmount" />
-  </div>
+  <div class="container">
+    <div class="headline">
+      <h2>Bill Splitter</h2>
+    </div>
+    <div>
+      <h5>Your Bill:</h5>
+      <input type="number" placeholder="Your Bill goes here" v-model="totalBill" />
+    </div>
+    <div>
+      <h5>Enter Number of People:</h5>
+      <input type="number" placeholder="No. people goes here" v-model="noPeople" />
+    </div>
+    <div>
+      <h5>Please enter your tip %:</h5>
+      <input type="number" placeholder="Your Tip % goes here" v-model="customAmount" />
+    </div>
 
-  <bill-display
-    :noPeople="noPeople"
-    :totalBill="totalBill"
-    :customAmount="customAmount"
-    @resetCalculation="setToZero"
-  ></bill-display>
+    <bill-display
+      :noPeople="noPeople"
+      :totalBill="totalBill"
+      :customAmount="customAmount"
+      @resetCalculation="setToZero"
+    ></bill-display>
+  </div>
 </template>
 
 <script>
@@ -46,4 +49,33 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+#app{
+  background:chartreuse;
+}
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 40px;
+  background: salmon;
+  font-family: "Rubik", sans-serif;
+  border-radius: 5px;
+}
+
+.container h2{
+  text-align: center;
+  color: black;
+}
+h5{
+  margin-bottom: 10px;
+}
+input{
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  padding: 2px 5px;
+  }
+
 </style>

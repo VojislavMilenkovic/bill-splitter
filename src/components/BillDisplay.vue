@@ -1,20 +1,15 @@
 <template>
   <div>
-    <h4>Bill Per Person:</h4>
-    <h3>{{ billPerPerson }}</h3>
+    <h5>Bill Per Person: {{ billPerPerson }}</h5>
   </div>
   <div>
-    <h4>Tip Per Person:</h4>
-    <h3>{{ tipPerPerson }}</h3>
+    <h5>Tip Per Person: {{ tipPerPerson }}</h5>
   </div>
   <div>
-    <h4>Total Amount per Person:</h4>
-    <h3>{{ totalAmountPerPerson }}</h3>
+    <h5>Total/person: {{ totalAmountPerPerson }}</h5>
   </div>
   <div>
     <button type="button" @click="calcBillPerPerson">CALCULATE</button>
-  </div>
-  <div>
     <button type="button" @click="resetCalculation">RESET</button>
   </div>
 </template>
@@ -45,5 +40,15 @@ export default {
   },
 };
 </script>
+
 <style>
+button {
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 15px;
+  padding: 3px 5px;
+}
 </style>
